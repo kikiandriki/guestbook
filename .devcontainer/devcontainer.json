@@ -11,7 +11,7 @@
     "csstools.postcss",
     "ms-azuretools.vscode-docker"
   ],
-  "forwardPorts": [3000, 6379],
+  "forwardPorts": [3003, 6379, 8000, 80],
   "remoteUser": "node",
   "features": {
     "git": "latest",

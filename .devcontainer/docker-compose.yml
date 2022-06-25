@@ -22,5 +22,17 @@ services:
     hostname: app
     volumes:
       - data:/data
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /var/lib/dynamodb/data/
+    restart: unless-stopped
+    network_mode: service:app
+    user: root
+    volumes:
+      - ddb-data:/var/lib/dynamodb/data
+  dynamodb-viewer:
+    image: taydy/dynamodb-manager
+    network_mode: service:app
 volumes:
-  data: null
+  data: {}
+  ddb-data: {}

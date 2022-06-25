@@ -6,6 +6,8 @@
     "check:format": "prettier --check *",
     "check:types": "tsc --noEmit",
     "test": "jest",
+    "db:sync": "ts-node -r tsconfig-paths/register bin/sync.ts",
+    "db:drop": "ts-node -r tsconfig-paths/register bin/drop.ts",
     "develop": "nodemon",
     "build": "npm-run-all --serial build:*",
     "build:bundle": "esbuild --bundle --minify --outfile=dist/handler.js --platform=node --sourcemap --define:process.env.NODE_ENV=\\\"production\\\" --tree-shaking=true src/handler.ts",
@@ -51,6 +53,8 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.118.0",
+    "@aws-sdk/lib-dynamodb": "^3.118.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^5.0.0-beta.1",

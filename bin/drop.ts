@@ -1,12 +1,14 @@
 /**
- * Main runner for development.
+ * Drop development database.
+ *
+ * Run after making changes to the schema.
  */
 
 // External imports.
 import "dotenv/config"
 
-// Application imports.
-import { app } from "@app"
+// Database imports.
+import { BaseTable } from "@db/dynamodb"
 
 // Utility imports.
 import { logger } from "@utils/logger"
@@ -15,10 +17,9 @@ import { logger } from "@utils/logger"
  * Main runner function.
  */
 async function run() {
-  // Run the server.
-  app.listen(3003, () => {
-    logger.info("Listening...")
-  })
+  logger.info("Dropping...")
+  await BaseTable.drop()
+  logger.info("Done.")
 }
 
 // Run the application.
