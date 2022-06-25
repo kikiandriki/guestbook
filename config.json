@@ -1,0 +1,5 @@
+{
+  "cdkStackName": "Guestbook",
+  "authExpectedIssuer": "https://kikiandriki.us.auth0.com/",
+  "authExpectedAudience": "kikiandriki"
+}

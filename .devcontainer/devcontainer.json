@@ -1,0 +1,21 @@
+{
+  "name": "guestbook",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "settings": {},
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "skyapps.fish-vscode",
+    "csstools.postcss",
+    "ms-azuretools.vscode-docker"
+  ],
+  "forwardPorts": [3000, 6379],
+  "remoteUser": "node",
+  "features": {
+    "git": "latest",
+    "github-cli": "latest",
+    "aws-cli": "latest"
+  }
+}
