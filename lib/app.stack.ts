@@ -89,6 +89,9 @@ export class AppStack extends Stack {
       },
     })
 
+    // Give the AWS Lambda function full access to the DynamoDB Table.
+    table.grantFullAccess(handler)
+
     // The AWS API Gateway for the function.
     new LambdaRestApi(this, "Endpoint", {
       handler,
