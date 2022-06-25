@@ -13,6 +13,7 @@ import { member } from "@middlewares/member"
 
 // Route imports.
 import { comments } from "@routes/comments"
+import { logger } from "@utils/logger"
 
 // Initialize the app.
 export const app = express()
@@ -23,7 +24,11 @@ app.use(express.json())
 // Small workaround to parse body in Lambda environment.
 app.use((req, _res, next) => {
   if (req.body instanceof Buffer) {
-    req.body = JSON.parse(req.body.toString("utf-8"))
+    try {
+      req.body = JSON.parse(req.body.toString("utf-8"))
+    } catch (error) {
+      logger.error(error)
+    }
   }
   next()
 })
